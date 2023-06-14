@@ -14,5 +14,5 @@ jobs:
           host: ${{ secrets.SSH_HOST }}
           user: ${{ secrets.SSH_USER }}
           pass: ${{ secrets.SSH_PASSWORD }}
-          port: 11103
+          port: 22
           command: cd /home/pi/Projects/vigenesia && git pull origin main
