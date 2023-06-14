@@ -81,7 +81,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <input type="password" name="password" id="password">
         </p>  
         
-        <p><input type="submit" name="submit" id="submit"></p>
+        <p><input type="submit" name="submit" id="submit" value="Login"></p>
 
     </>
 
