@@ -9,7 +9,7 @@ class Listuser extends CI_Controller{
     public function index() {
 
         $data['title'] = "Data user";
-        $data['getdata'] = self::getAll();
+        //$data['getdata'] = self::getAll();
 
         $this->load->view('listuser', $data);
     }

@@ -5,6 +5,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <head>
 	<meta charset="utf-8">
 	<title>Welcome to CodeIgniter</title>
+	<script src = "https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 
 	<style type="text/css">
 
@@ -70,12 +71,45 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <div id="container">
 	<h1>List User</h1>
 
-	<div id="body">
-        <?php var_dump($getdata); ?>
+	<div id="result">
+        <?php //var_dump($getdata); ?>
     </div>
 </div>
 
 </div>
 
+<script>
+/*var settings = {
+  "url": "http://localhost/oprek/vigenesia/api/user",
+  "method": "GET",
+  "timeout": 0
+};
+
+$.ajax(settings).done(function (response) {
+
+  console.log(response);
+  ( "#result" ).html( response );
+
+});
+*/
+$(document).ready(function () {
+	$.ajax({
+		type: 'GET',
+		url: 'http://localhost/oprek/vigenesia/api/user',
+		data : {},
+		dataType: 'json',
+		success: function (data) {
+
+			for (var i=0;i<data.length;++i)
+				{
+					//console.log(data[i].nama);
+					$('#result').append('<div class="name">'+data[i].nama+'</>');
+				}
+
+			//$('#result').html(json);
+		}
+	});
+});
+</script>
 </body>
 </html>
