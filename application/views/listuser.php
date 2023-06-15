@@ -47,7 +47,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $(document).ready(function () {
 	$.ajax({
 		type: 'GET',
-		url: 'http://localhost/oprek/vigenesia/api/user',
+		url: '<?=base_url()?>api/user',
 		data : {},
 		dataType: 'json',
 		success: function (data) {
