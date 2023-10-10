@@ -54,3 +54,5 @@ $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 $config['rest_enable_keys'] = TRUE;
 $config['rest_auth'] = 'basic';
+
+$route['user/list'] = 'listuser/index';
