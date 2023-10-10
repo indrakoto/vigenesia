@@ -1,5 +1,2 @@
-.htaccess
-/application/config/config.php
-/application/config/database.php
-
+composer.lock
 .DS_Store
