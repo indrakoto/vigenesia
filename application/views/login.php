@@ -4,94 +4,96 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<title>Welcome to CodeIgniter</title>
+	<title><?=$title?></title>
 
-	<style type="text/css">
+	<!-- Latest compiled and minified CSS -->
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+	<script src = "https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+	<!-- Latest compiled JavaScript -->
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script> 
+		
+    <!-- STYLE CSS -->
+	<link href="<?=base_url()?>assets/css/style.css" rel="stylesheet">
 
-	::selection { background-color: #E13300; color: white; }
-	::-moz-selection { background-color: #E13300; color: white; }
-
-	body {
-		background-color: #fff;
-		margin: 40px;
-		font: 13px/20px normal Helvetica, Arial, sans-serif;
-		color: #4F5155;
-	}
-
-	a {
-		color: #003399;
-		background-color: transparent;
-		font-weight: normal;
-	}
-
-	h1 {
-		color: #444;
-		background-color: transparent;
-		border-bottom: 1px solid #D0D0D0;
-		font-size: 19px;
-		font-weight: normal;
-		margin: 0 0 14px 0;
-		padding: 14px 15px 10px 15px;
-	}
-
-	code {
-		font-family: Consolas, Monaco, Courier New, Courier, monospace;
-		font-size: 12px;
-		background-color: #f9f9f9;
-		border: 1px solid #D0D0D0;
-		color: #002166;
-		display: block;
-		margin: 14px 0 14px 0;
-		padding: 12px 10px 12px 10px;
-	}
-
-	#body {
-		margin: 0 15px 0 15px;
-	}
-
-	p.footer {
-		text-align: right;
-		font-size: 11px;
-		border-top: 1px solid #D0D0D0;
-		line-height: 32px;
-		padding: 0 10px 0 10px;
-		margin: 20px 0 0 0;
-	}
-
-	#container {
-		margin: 10px;
-		border: 1px solid #D0D0D0;
-		box-shadow: 0 0 8px #D0D0D0;
-	}
-	</style>
 </head>
 <body>
 
 <div id="container">
 	<h1>Login</h1>
+	<div id="body">	
+		<div id="result"></div>
+		<?= form_open('login/index'); ?>
+			<div class="mb-3" style="width: 30%;">
+				<label for="password" class="form-label">Email address</label>
+				<input type="email" class="form-control form-control-sm" id="email" aria-describedby="email">
+			</div>
+			<div class="mb-3" style="width: 30%;>
+				<label for="password" class="form-label">Password</label>
+				<input type="password" class="form-control form-control-sm" id="password">
+			</div>
+			<div class="mb-3 form-check">
+				<input type="checkbox" class="form-check-input" id="exampleCheck1">
+				<label class="form-check-label" for="exampleCheck1">Check me out</label>
+			</div>
+			<button type="submit" class="btn btn-primary cmdLogin">Submit</button>
+			
+		<?= form_close(); ?>
+	</div>
+	<p class="footer">Page rendered in <strong>{elapsed_time}</strong> seconds. <?php echo  (ENVIRONMENT === 'development') ?  'CodeIgniter Version <strong>' . CI_VERSION . '</strong>' : '' ?></p>
 
-    <?= form_open('login/index'); ?>
-        <p>
-        <label>Username/Email</label>
-        <input type="text" name="email" id="email">
-        </p>
 
-        <p>
-        <label>Password</label>
-        <input type="password" name="password" id="password">
-        </p>  
-        
-        <p><input type="submit" name="submit" id="submit" value="Login"></p>
-
-    </>
-
-    <div id="result"></div>
     
 </div>
+	<script type="text/javascript">
+							
+		function sleep(milliseconds) {
+			var start = new Date().getTime();
+			for (var i = 0; i < 1e7; i++) {
+				if ((new Date().getTime() - start) > milliseconds){
+				break;
+				}
+			}
+		}
 
-<script>
+        $(function() {
+        	$('.cmdLogin').click(function() {
+            	var form_data = {
+                	email   : $('#email').val(),
+                    password : $('#password').val(),
+                };
 
+                $.ajax({
+					url: "<?=base_url()?>api/login",
+                    type: 'POST',
+                    data: form_data,
+					dataType: 'json',
+                                    
+                    success: function(msg) {
+                        if(msg=='1'){ 
+                            //location.href = '<?=base_url()?>listuser';
+							console.log(msg);
+                    	}else{
+                          	//$(".loading").hide();
+                          	//$(".request_akun").hide();
+                    		//$('#login_message').show().html(msg);  
+                        }
+                                        
+                    }
+                });
 
-</script>
+                return false;
+            });
+
+			$('#cmdReset').click(function() {
+                $(".loading").hide();
+                $('#login_message').hide();
+                $('#inputUsername').val('');
+                $('#inputPassword').val('')
+            });
+                            
+
+        });
+	</script>
+
 </body>
 </html>
