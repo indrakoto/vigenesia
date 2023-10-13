@@ -8,11 +8,14 @@
 
 
 # Contoh API
-GET : /api/user  -> Untuk Mengambil List disaat Login <br/>
-POST : /api/login -> Untuk Login User yang sudah registrasi<br>
+GET : /api/user  -> menampilkan output json API RESTful <br/>
+URL : http://domain/api/user <br>
+<br>
+POST : /api/login -> untuk login user<br>
+dll
 
 # Contoh Aplikasi akses API
-url : http://domain/listuser <br>
+URL : http://domain/listuser <br>
 listuser akses curl pada function getAll mengarah ke API Get /api/user
 
 
