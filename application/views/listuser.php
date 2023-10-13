@@ -47,7 +47,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $(document).ready(function () {
 	$.ajax({
 		type: 'GET',
-		url: '<?=base_url()?>api/user',
+		url: '<?=base_url()?>listuser/getAll',
 		data : {},
 		dataType: 'json',
 		success: function (data) {

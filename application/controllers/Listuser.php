@@ -20,7 +20,7 @@ class Listuser extends CI_Controller{
         $curl = curl_init();
 
         curl_setopt_array($curl, array(
-          CURLOPT_URL => 'http://localhost/oprek/vigenesia/api/user',
+          CURLOPT_URL => base_url().'api/user',
           CURLOPT_RETURNTRANSFER => true,
           CURLOPT_ENCODING => '',
           CURLOPT_MAXREDIRS => 10,
