@@ -1,5 +1,6 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
+//echo $_SERVER['HTTP_HOST'];
 ?><!DOCTYPE html>
 <html lang="en">
 <head>
@@ -47,7 +48,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $(document).ready(function () {
 	$.ajax({
 		type: 'GET',
-		url: '<?=base_url()?>listuser/getAll',
+		url: '<?=base_url()?>api/user',
 		data : {},
 		dataType: 'json',
 		success: function (data) {
