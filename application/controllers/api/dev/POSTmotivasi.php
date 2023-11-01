@@ -45,4 +45,7 @@ class POSTmotivasi extends REST_Controller
             ], REST_Controller::HTTP_OK);
         }
     }
+    public function index_get()
+    {
+    }
 }

@@ -7,7 +7,7 @@ require APPPATH . '/libraries/REST_Controller.php';
 
 use Restserver\Libraries\REST_Controller;
 
-class registrasi extends REST_Controller
+class Registrasi extends REST_Controller
 {
     public function __construct()
     {
@@ -23,9 +23,9 @@ class registrasi extends REST_Controller
         // Load the user model
         $this->load->model('user');
     }
+
     public function index_post()
     {
-
         // Get the post data
         $nama = strip_tags($this->post('nama'));
 

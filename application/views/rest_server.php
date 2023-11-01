@@ -105,7 +105,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                 </p>
                 <li><a href="<?php echo site_url('/api/dev/POSTmotivasi'); ?>">POST UNTUK motivasi</a> - defaulting to JSON</li>
                 <li><a href="<?php echo site_url('/api/dev/PUTmotivasi'); ?>">PUT UNTUK Update motivasi</a> - defaulting to JSON</li>
-                <li><a href="<?php echo site_url('/api/Get_motivasi'); ?>">GET UNTUK motivasi</a> - defaulting to JSON</li>
+                <li><a href="<?php echo site_url('/api/motivasi'); ?>">GET UNTUK motivasi</a> - defaulting to JSON</li>
                 <li><a href="<?php echo site_url('/api/dev/DELETEmotivasi'); ?>">Delete UNTUK motivasi</a> - defaulting to JSON</li>
             </ol>
 

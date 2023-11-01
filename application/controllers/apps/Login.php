@@ -19,7 +19,7 @@ class Login extends CI_Controller
         }
 
         $data['title'] = 'Login';
-        $this->load->view('login',$data);
+        $this->load->view('apps/login',$data);
     }
 
     function getAkses($email,$password){

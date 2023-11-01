@@ -1,7 +1,5 @@
 
-<?php
-
-
+<?php   defined('BASEPATH') or exit('No direct script access allowed');
 
 class Listuser extends CI_Controller{
 
@@ -10,8 +8,8 @@ class Listuser extends CI_Controller{
 
         $data['title'] = "Data User";
         //$data['getdata'] = self::getAll();
-
-        $this->load->view('listuser', $data);
+        //echo "tesss";
+        $this->load->view('apps/index', $data);
     }
 
     function getAll() 

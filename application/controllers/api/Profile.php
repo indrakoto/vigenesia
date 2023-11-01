@@ -1,12 +1,10 @@
-<?php
-
-defined('BASEPATH') or exit('No direct script access allowed');
+<?php defined('BASEPATH') or exit('No direct script access allowed');
 
 require APPPATH . '/libraries/REST_Controller.php';
 
 use Restserver\Libraries\REST_Controller;
 
-class PUTprofile extends REST_Controller
+class Profile extends REST_Controller
 {
 
     function __construct($config = 'rest')
@@ -21,6 +19,19 @@ class PUTprofile extends REST_Controller
             die();
         }
         $this->load->model('user');
+    }
+
+    function index_get($id=null)
+    {
+        //echo $id; exit;
+        //$id = $this->get('iduser');
+        if ($id == '') {
+            $api = $this->db->get('user')->result();
+        } else {
+            $this->db->where('iduser', $id);
+            $api = $this->db->get('user')->result();
+        }
+        $this->response($api, 200);
     }
 
     function index_put()

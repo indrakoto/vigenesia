@@ -1,20 +1,17 @@
-    <?php
-
-    defined('BASEPATH') or exit('No direct script access allowed');
+    <?php defined('BASEPATH') or exit('No direct script access allowed');
 
     require APPPATH . '/libraries/REST_Controller.php';
 
-
     use Restserver\Libraries\REST_Controller;
 
-    class login extends REST_Controller
+    class Login extends REST_Controller
     {
 
 
         public function __construct()
         {
             parent::__construct();
-            $this->load->database();
+            //$this->load->database();
             header('Access-Control-Allow-Origin: *');
             header("Access-Control-Allow-Headers: X-API-KEY, Origin, X-Requested-With, Content-Type, Accept, Access-Control-Request-Method");
             header("Access-Control-Allow-Methods: GET, POST, OPTIONS, PUT, DELETE");
@@ -43,7 +40,12 @@
                     'password' => md5($password),
                     'is_active' => 1
                 );
+
+                
+
                 $user = $this->user->getRows($con);
+
+                //print_r($user); die();
 
                 if ($user) {
                     // Set the response and exit
@@ -61,5 +63,10 @@
                 // Set the response and exit
                 $this->response("Belum mengisi email dan password.", REST_Controller::HTTP_BAD_REQUEST);
             }
+        }
+
+
+        public function index_get(){
+
         }
     }

@@ -6,7 +6,7 @@ require APPPATH . '/libraries/REST_Controller.php';
 
 use Restserver\Libraries\REST_Controller;
 
-class api extends REST_Controller
+class Contohapi extends REST_Controller
 {
 
     function __construct($config = 'rest')
@@ -48,6 +48,9 @@ class api extends REST_Controller
             'is_active'    => $this->post('is_active'),
             'tanggal_input'    => $this->post('tanggal_input')
         );
+
+        print_r($data); die();
+        
         $insert = $this->db->insert('user', $data);
         if ($insert) {
             $this->response($data, 200);

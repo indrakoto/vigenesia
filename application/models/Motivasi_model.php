@@ -1,7 +1,7 @@
 <?php
 if (!defined('BASEPATH')) exit('No direct script access allowed');
 
-class Motivasi extends CI_Model
+class Motivasi_model extends CI_Model
 {
 
     public function __construct()
