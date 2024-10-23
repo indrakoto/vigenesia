@@ -37,7 +37,7 @@
                 $con['returnType'] = 'single';
                 $con['conditions'] = array(
                     'email' => $email,
-                    'password' => md5($password),
+                    'password' => password_verify($password, PASSWORD_DEFAULT),
                     'is_active' => 1
                 );
 

@@ -3,6 +3,7 @@ if (!defined('BASEPATH')) exit('No direct script access allowed');
 
 class User extends CI_Model
 {
+    public $userTbl;
 
     public function __construct()
     {
@@ -11,7 +12,7 @@ class User extends CI_Model
         // Load the database library
         $this->load->database();
 
-        $this->userTbl = 'user';
+        $this->userTbl = 'users';
     }
 
     /*
@@ -29,8 +30,8 @@ class User extends CI_Model
             }
         }
 
-        if (array_key_exists("iduser", $params)) {
-            $this->db->where('iduser', $params['iduser']);
+        if (array_key_exists("id", $params)) {
+            $this->db->where('id', $params['id']);
             $query = $this->db->get();
             $result = $query->row_array();
         } else {
