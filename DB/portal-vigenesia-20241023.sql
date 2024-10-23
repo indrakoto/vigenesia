@@ -39,13 +39,13 @@ CREATE TABLE `kategori` (
 
 DROP TABLE IF EXISTS `kategori_motivasi`;
 CREATE TABLE `kategori_motivasi` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `kategori` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 DROP TABLE IF EXISTS `motivasi`;
 CREATE TABLE `motivasi` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `isi_motivasi` text NOT NULL,
   `user_id` int(11) NOT NULL,
   `tanggal_input` date NOT NULL,
