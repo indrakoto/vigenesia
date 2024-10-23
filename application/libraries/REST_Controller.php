@@ -556,7 +556,8 @@ abstract class REST_Controller extends \CI_Controller {
             (! ($this->config->item('rest_enable_keys') && $this->_allow === TRUE) ||
             ($this->config->item('allow_auth_and_keys') === TRUE && $this->_allow === TRUE)))
         {
-            $rest_auth = strtolower($this->config->item('rest_auth'));
+            //$rest_auth = strtolower($this->config->item('rest_auth') ?? '');
+            $rest_auth = strtolower($this->config->item('rest_auth') ?? '');
             switch ($rest_auth)
             {
                 case 'basic':
@@ -985,7 +986,7 @@ abstract class REST_Controller extends \CI_Controller {
                 $method = $this->input->server('HTTP_X_HTTP_METHOD_OVERRIDE');
             }
 
-            $method = strtolower($method);
+            $method = strtolower($method ?? '');
         }
 
         if (empty($method))
@@ -1893,7 +1894,7 @@ abstract class REST_Controller extends \CI_Controller {
         }
 
         $auth_source = strtolower($this->config->item('auth_source'));
-        $rest_auth = strtolower($this->config->item('rest_auth'));
+        $rest_auth = strtolower($this->config->item('rest_auth') ?? '');
         $valid_logins = $this->config->item('rest_valid_logins');
 
         if ( ! $this->config->item('auth_source') && $rest_auth === 'digest')

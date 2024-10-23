@@ -413,7 +413,7 @@ class RestController extends \CI_Controller
         if ($this->auth_override === false &&
             (!($this->config->item('rest_enable_keys') && $this->_allow === true) ||
                 ($this->config->item('allow_auth_and_keys') === true && $this->_allow === true))) {
-            $rest_auth = strtolower($this->config->item('rest_auth'));
+            $rest_auth = strtolower($this->config->item('rest_auth') ?? '');
             switch ($rest_auth) {
                 case 'basic':
                     $this->_prepare_basic_auth();
@@ -1670,7 +1670,7 @@ class RestController extends \CI_Controller
         }
 
         $auth_source = strtolower($this->config->item('auth_source'));
-        $rest_auth = strtolower($this->config->item('rest_auth'));
+        $rest_auth = strtolower($this->config->item('rest_auth') ?? '');
         $valid_logins = $this->config->item('rest_valid_logins');
 
         if (!$this->config->item('auth_source') && $rest_auth === 'digest') {
@@ -1873,7 +1873,7 @@ class RestController extends \CI_Controller
      */
     protected function _force_login($nonce = '')
     {
-        $rest_auth = strtolower($this->config->item('rest_auth'));
+        $rest_auth = strtolower($this->config->item('rest_auth') ?? '');
         $rest_realm = $this->config->item('rest_realm');
         if ($rest_auth === 'basic') {
             // See http://tools.ietf.org/html/rfc2617#page-5
